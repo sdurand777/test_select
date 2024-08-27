@@ -1,0 +1,52 @@
+name: select_exp
+channels:
+  - pyg
+  - pytorch
+  - nvidia
+  - defaults
+  - conda-forge
+  - open3d-admin
+dependencies:
+  - pip
+  - python=3.10
+  - pytorch=2.1=py3.10_cuda12.1_cudnn8.9.2_0
+  - pytorch-cuda=12.1
+  - pytorch-mutex=1.0=cuda
+  - pytorch-scatter=2.1
+  - torchvision
+  - tensordict
+  - libffi
+  - wayland
+  - timm==0.5.4
+  #- open3d=0.15.1
+  #- libffi
+  # - libstdcxx-ng
+  # - gxx
+  # - gcc
+  #- nvidia/label/cuda-12.1.0::cuda
+  #- mkl=2024.0.0
+  - pip:
+      - pypose
+      - pyvista
+      - opt_einsum
+      - scikit-image
+      - tqdm
+      - wandb
+      - imageio
+      - scipy
+      - fastcore
+      - albumentations
+      - imagesize
+      - h5py
+      - gin-config
+      - opencv-python
+      - einops
+      - numba
+      - shapely
+      - evo # For plotting and Multi-SLAM eval
+      - matplotlib # For plotting
+      - chardet # For plotting
+      - PyQt5 # For plotting
+      - open3d==0.16.0
+      - plyfile
+      - yacs
