@@ -76,12 +76,8 @@ if __name__ == '__main__':
     parser.add_argument('--restore_ckpt', help="restore checkpoint", default=None)
     parser.add_argument('--save_numpy', action='store_true', help='save output as numpy arrays')
     
-    # parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="/home/ivm/test_select/demo_imgs/Motorcycle/im0.png")
-    # parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="/home/ivm/test_select/demo_imgs/Motorcycle/im1.png")
-
-    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="/home/ivm/test_select/test_300/img0.jpg")
-    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="/home/ivm/test_select/test_300/img1.jpg")
-
+    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="./demo_imgs/Motorcycle/im0.png")
+    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="./demo_imgs/Motorcycle/im1.png")
 
 
 
