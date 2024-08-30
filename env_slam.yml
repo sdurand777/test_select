@@ -1,4 +1,4 @@
-name: select_exp
+name: igev_exp
 channels:
   - pyg
   - pytorch
@@ -18,6 +18,8 @@ dependencies:
   - libffi
   - wayland
   - timm==0.5.4
+  - pyqt
+  #- timm==0.5.4
   #- open3d=0.15.1
   #- libffi
   # - libstdcxx-ng
@@ -26,6 +28,10 @@ dependencies:
   #- nvidia/label/cuda-12.1.0::cuda
   #- mkl=2024.0.0
   - pip:
+      - wandb
+      - xformers
+      - einops
+      - huggingface_hub
       - pypose
       - pyvista
       - opt_einsum
@@ -39,7 +45,7 @@ dependencies:
       - imagesize
       - h5py
       - gin-config
-      - opencv-python
+      - opencv-python-headless
       - einops
       - numba
       - shapely

@@ -13,6 +13,7 @@ from PIL import Image
 from matplotlib import pyplot as plt
 import os
 import torch.nn.functional as F
+import time
 
 DEVICE = 'cuda'
 import os
@@ -54,6 +55,29 @@ def demo(args):
 
         print(f"Found {len(left_images)} images. Saving files to {output_directory}/")
 
+
+
+
+        total_inference_time = 0
+        num_iterations = 100
+
+        # Warm-up iterations (to avoid any cold-start delays)
+        for _ in range(num_iterations):
+            for (imfile1, imfile2) in zip(left_images, right_images):
+                image1 = load_image(imfile1)
+                image2 = load_image(imfile2)
+                padder = InputPadder(image1.shape, divis_by=32)
+                image1, image2 = padder.pad(image1, image2)
+                start_time = time.time()
+                _ = model(image1, image2, iters=16, test_mode=True)
+                end_time = time.time()
+                inference_time = end_time - start_time
+                total_inference_time += inference_time
+
+        average_inference_time = total_inference_time / num_iterations
+        print(f"Average Inference Time over {num_iterations} iterations: {average_inference_time:.4f} seconds")
+
+
         for (imfile1, imfile2) in tqdm(list(zip(left_images, right_images))):
             image1 = load_image(imfile1)
             image2 = load_image(imfile2)
@@ -76,8 +100,11 @@ if __name__ == '__main__':
     parser.add_argument('--restore_ckpt', help="restore checkpoint", default=None)
     parser.add_argument('--save_numpy', action='store_true', help='save output as numpy arrays')
     
-    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="./demo_imgs/Motorcycle/im0.png")
-    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="./demo_imgs/Motorcycle/im1.png")
+    # parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="./demo_imgs/Motorcycle/im0.png")
+    # parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="./demo_imgs/Motorcycle/im1.png")
+
+    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="./demo_imgs/Motorcycle/resized/im0.png")
+    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="./demo_imgs/Motorcycle/resized/im1.png")
 
 
 
