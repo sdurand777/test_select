@@ -1,3 +1,9 @@
 # Ignorer tous les fichiers de cache Python dans tous les sous-dossiers
 **/__pycache__/
 **/*.pyc
+
+**/depth_imgs
+**/depth
+
+*.mp4
+*.png

@@ -338,7 +338,7 @@ if __name__ == '__main__':
         # Récupérer uniquement le nom du fichier sans l'extension
         filename_without_extension = os.path.splitext(filename_with_extension)[0]
 
-        file_path = "/home/ivm/Selective-Stereo/Selective-IGEV/test_pipe/depth_imgs/"+filename_without_extension+".png"
+        file_path = "./depth_imgs/"+filename_without_extension+".png"
         print("======= file_path : ",file_path)
 
         depth_grayscale = depthmap_to_grayscale(depth / 1000.0)
@@ -349,7 +349,7 @@ if __name__ == '__main__':
 
         depth_data = cv2.resize(depth, (514, 376))
 
-        depth_path = "/home/ivm/Selective-Stereo/Selective-IGEV/test_pipe/depth/"+filename_without_extension+".npy" 
+        depth_path = "./depth/"+filename_without_extension+".npy" 
         np.save(depth_path, depth_data)
 
 
