@@ -38,8 +38,16 @@ parser.add_argument('--save_numpy', action='store_true', help='save output as nu
 # parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="./test_video/right/*.JPG")
 
 
-parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="/home/ivm/test_pipe/left/*.JPG")
-parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="/home/ivm/test_pipe/right/*.JPG")
+# parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="/home/ivm/test_pipe/left/*.JPG")
+# parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="/home/ivm/test_pipe/right/*.JPG")
+
+
+parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="/home/ivm/escargot/left/*.JPG")
+parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="/home/ivm/escargot/right/*.JPG")
+
+
+
+
 
 # parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="./test_video_light/left/*.JPG")
 # parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="./test_video_light/right/*.JPG")
